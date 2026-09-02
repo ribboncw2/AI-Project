@@ -29,7 +29,11 @@ function fileType(filePath) {
     ".gif": "Image",
     ".webp": "Image",
     ".txt": "Text",
-    ".md": "Text"
+    ".md": "Text",
+    ".pptx": "PowerPoint",
+    ".ppt": "PowerPoint",
+    ".mp4": "Video",
+    ".mov": "Video"
   };
   return map[ext] || (ext.replace(".", "").toUpperCase() || "file");
 }

@@ -29,7 +29,8 @@
   }
 
   function paragraph(text) {
-    return "<p class=\"placeholder\">" + escapeHtml(text) + "</p>";
+    const cls = String(text).indexOf("Placeholder") === 0 ? "placeholder" : "";
+    return "<p" + (cls ? " class=\"" + cls + "\"" : "") + ">" + escapeHtml(text) + "</p>";
   }
 
   function cover(audienceLabel) {
@@ -121,7 +122,16 @@
         "<ul>" +
         files
           .map(function (f) {
-            return "<li>" + escapeHtml(f.name) + " <span class=\"badge\">" + escapeHtml(f.type || "file") + "</span></li>";
+            const note = (r.sourceNotes && r.sourceNotes[f.name]) || "";
+            return (
+              "<li>" +
+              escapeHtml(f.name) +
+              " <span class=\"badge\">" +
+              escapeHtml(f.type || "file") +
+              "</span>" +
+              (note ? "<br><span class=\"used-as\">" + escapeHtml(note) + "</span>" : "") +
+              "</li>"
+            );
           })
           .join("") +
         "</ul>";

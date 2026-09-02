@@ -1,6 +1,7 @@
 # Keep evidence on this computer only — never send to GitHub
 uploads/*
 !uploads/.gitkeep
+sources/
 
 # Local / OS
 .DS_Store

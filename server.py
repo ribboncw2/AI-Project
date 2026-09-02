@@ -40,6 +40,10 @@ def file_type(path: Path) -> str:
         ".webp": "Image",
         ".txt": "Text",
         ".md": "Text",
+        ".pptx": "PowerPoint",
+        ".ppt": "PowerPoint",
+        ".mp4": "Video",
+        ".mov": "Video",
     }
     return mapping.get(ext, ext.replace(".", "").upper() or "file")
 
