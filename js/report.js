@@ -3,7 +3,7 @@ window.REPORT = {
   title: "Classroom inquiry: digital practice and student learning",
   teacher: "[Your name]",
   school: "[School name]",
-  board: "[District school board]",
+  boardName: "[District school board]",
   date: "September 2026",
   purpose:
     "This report shares one classroom inquiry for two readers. The principal version focuses on instruction, assessment, and school support. The board version focuses on equity of access, curriculum implementation, and a clear system-level ask. Language follows Growing Success and Ontario secondary practice.",

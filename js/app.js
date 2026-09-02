@@ -42,7 +42,7 @@
       "<dl class=\"meta\">" +
       "<dt>Teacher</dt><dd>" + escapeHtml(r.teacher) + "</dd>" +
       "<dt>School</dt><dd>" + escapeHtml(r.school) + "</dd>" +
-      "<dt>Board</dt><dd>" + escapeHtml(r.board) + "</dd>" +
+      "<dt>Board</dt><dd>" + escapeHtml(r.boardName) + "</dd>" +
       "<dt>Date</dt><dd>" + escapeHtml(r.date) + "</dd>" +
       "<dt>Purpose</dt><dd>" + escapeHtml(r.purpose) + "</dd>" +
       "</dl></header>"
