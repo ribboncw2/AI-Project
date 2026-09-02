@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ontario dual-audience report</title>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="app-header">
+    <div class="brand">
+      <h1>Ontario dual-audience report</h1>
+      <p>Principal (school) · Board (system) · This computer only</p>
+    </div>
+    <nav aria-label="Dashboard">
+      <a href="#home">Home</a>
+      <a href="#uploads">Uploads</a>
+      <a href="#report">Report</a>
+      <a href="#preview">Preview</a>
+      <a href="#print">Print</a>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section id="page-home" class="page" aria-labelledby="home-title">
+      <h2 id="home-title">How to use this</h2>
+      <p class="lede">You do not need to write code. This page helps you assemble one professional report that a principal and a board reader can each use. Wording changes happen in Cursor chat; this site is for reading, files, preview, and print.</p>
+
+      <div class="card notice">
+        <h3>Three steps</h3>
+        <ol class="steps">
+          <li>Keep this site open at <strong>http://localhost:8080</strong> (start it with <strong>start.command</strong> in the AI-Project folder).</li>
+          <li>On <strong>Uploads</strong>, add files you downloaded from Google Drive (SIP excerpts, rubrics, unit plans). Do not put student names in file titles if you can help it.</li>
+          <li>In Cursor chat, say what to add, change, or rephrase. Then open <strong>Preview</strong> (Principal, Board, or Full) and use <strong>Print</strong> → Save as PDF.</li>
+        </ol>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <span class="badge">Principal</span>
+          <h3>School version</h3>
+          <p>What you tried in class, evidence of learning (for / as / of), school improvement fit, and what support you need from the school.</p>
+        </div>
+        <div class="card">
+          <span class="badge gold">Board</span>
+          <h3>System version</h3>
+          <p>Why it matters beyond one room: equity of access, well-being, curriculum implementation, resources, and a clear next action.</p>
+        </div>
+        <div class="card">
+          <span class="badge green">Privacy</span>
+          <h3>Stays on this Mac</h3>
+          <p>Uploads are not sent to GitHub. The public repo holds this dashboard only. No Google Drive login is connected.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Ontario language used here</h3>
+        <p>Growing Success; overall and specific expectations; assessment for, as, and of learning; success criteria and descriptive feedback; Universal Design for Learning and differentiation; equity and inclusive education; OCT Standards of Practice. Not US “standards-based grading” wording.</p>
+      </div>
+    </section>
+
+    <section id="page-uploads" class="page" aria-labelledby="uploads-title">
+      <h2 id="uploads-title">Uploads</h2>
+      <p class="lede">Add PDF, Word, images, or spreadsheets you already downloaded. Files are saved in the project’s <strong>uploads</strong> folder on this computer. They are listed in the report appendix by file name.</p>
+
+      <div class="card" id="drop-zone">
+        <h3>Add files from your computer</h3>
+        <p>Use the button, or drag files onto this box. (Google Drive is not connected — download first, then add here.)</p>
+        <div class="toolbar">
+          <label class="btn" for="file-input">Choose files</label>
+          <input id="file-input" type="file" multiple hidden>
+          <button type="button" class="secondary" id="refresh-uploads">Refresh list</button>
+        </div>
+        <p class="status" id="upload-status" role="status"></p>
+      </div>
+
+      <div class="card">
+        <h3>Files in the uploads folder</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Size</th>
+              <th>In the report</th>
+            </tr>
+          </thead>
+          <tbody id="upload-rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="page-report" class="page" aria-labelledby="report-title">
+      <h2 id="report-title">Report</h2>
+      <p class="lede">This is the working full draft. Grey italic text is a professional placeholder. Tell me in chat what to replace — you do not need to edit the files yourself.</p>
+      <div class="callout">Ask for changes in plain English, for example: “Make the board ask one paragraph” or “Use the Unit 3 lab rubric in the evidence section.”</div>
+      <div class="report-paper" id="report-view"></div>
+    </section>
+
+    <section id="page-preview" class="page" aria-labelledby="preview-title">
+      <h2 id="preview-title">Preview</h2>
+      <p class="lede">Choose the length that matches the reader. Print uses the same choice.</p>
+      <div class="tabs" role="tablist" aria-label="Report version">
+        <button type="button" role="tab" data-preview="principal" aria-selected="false">Principal</button>
+        <button type="button" role="tab" data-preview="board" aria-selected="false">Board</button>
+        <button type="button" role="tab" data-preview="full" aria-selected="true">Full report</button>
+      </div>
+      <div class="toolbar">
+        <button type="button" id="print-button">Print this version</button>
+      </div>
+      <p class="status" id="preview-hint"></p>
+      <div class="report-paper" id="preview-view"></div>
+    </section>
+
+    <section id="page-print" class="page" aria-labelledby="print-title">
+      <h2 id="print-title" class="no-print">Print or Save as PDF</h2>
+      <p class="lede no-print">This layout is meant to look like a formal report on paper. Use your browser’s print dialog and choose “Save as PDF” if you do not need a paper copy. Notes to self are hidden on paper.</p>
+      <div class="toolbar no-print">
+        <button type="button" id="print-now">Print / Save as PDF</button>
+        <a class="btn secondary" href="#preview">Back to Preview</a>
+      </div>
+      <p class="status no-print">Tip: In Preview, pick Principal, Board, or Full first — Print follows that choice.</p>
+      <div class="report-paper" id="print-view"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Local dashboard · files in uploads/ stay on this computer · public GitHub holds the dashboard only</p>
+  </footer>
+
+  <script src="/js/report.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

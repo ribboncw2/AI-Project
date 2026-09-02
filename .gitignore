@@ -1,0 +1,21 @@
+# Keep evidence on this computer only — never send to GitHub
+uploads/*
+!uploads/.gitkeep
+
+# Local / OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Student and personal data (any extra copies)
+student-data/
+pii/
+*.osr
+*IEP*
+*iep*
+
+# Secrets
+.env
+.env.*
+credentials.json
+*secret*
